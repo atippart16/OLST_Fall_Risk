@@ -1,0 +1,11 @@
+-- ============================================================
+-- OLST Data Cleaning — SQL
+-- Input:  OLST_Final_Merged.csv  (1,241 rows — all attempts)
+-- Output: OLST_Final_Cleaned.csv (1,224 rows — complete cases)
+--
+-- Purpose: Remove trials with missing sensor values so every
+--          observation has a full multimodal feature set
+--          (MOCAP + Radar + Force Plate).
+-- ============================================================
+
+-- TODO: Paste your SQL cleaning code here

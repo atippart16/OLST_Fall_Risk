@@ -1,6 +1,9 @@
 # Data files (too large for git; download from PhysioNet)
-data/
+# Exceptions: reference CSVs in data/ are tracked
 *.csv
+!data/OLST_Final_Merged.csv
+!data/OLST_Final_Cleaned.csv
+!sql/*.sql
 *.h5
 *.npy
 
