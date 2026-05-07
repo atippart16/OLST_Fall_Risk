@@ -1,15 +1,13 @@
 # Multimodal Sensor Fusion for Balance Instability Assessment
 
 **INFO I-501 — Group 4**  
-Akanksha Tipparti · Srilakshmi Maddipati · Vishnu Sudarsanan · Volga Yerukola
+Akanksha Tipparti · Volga Yerukola · Srilakshmi Maddipati · Vishnu Sudarsanan 
 
 ---
 
 ## Overview
 
 This project evaluates whether **multimodal sensor fusion** improves the detection of balance instability during the **One-Legged Stand Test (OLST)** — a common clinical tool for fall-risk assessment.
-
-Falls affect ~37.3 million people annually requiring medical attention. Traditional single-sensor approaches miss the full complexity of balance. We combine three sensor modalities — Motion Capture, Force Plate, and Radar — to build a more accurate, objective classifier.
 
 ---
 
@@ -32,6 +30,10 @@ Falls affect ~37.3 million people annually requiring medical attention. Traditio
 ## Repository Structure
 
 ```
+├── data/
+│   ├── OLST_Final_Merged.csv               # 1,241 rows — post feature merge (all 3 modalities)
+│   └── OLST_Final_Cleaned.csv              # 1,224 rows — after SQL cleaning (complete cases only)
+│
 ├── feature_extraction/
 │   ├── MOCAP_feature_extraction.ipynb      # 25 kinematic features from motion capture
 │   ├── Forceplate_feature_extraction.ipynb # 16 kinetic features from force plates
@@ -41,8 +43,12 @@ Falls affect ~37.3 million people annually requiring medical attention. Traditio
 ├── ml_pipeline/
 │   └── OLST_Full_Pipeline.ipynb            # EDA, SQL cleaning, ML models, evaluation
 │
+├── sql/
+│   └── data_cleaning.sql                   # SQL cleaning to remove attempts with atleast 1 missing feature
+│
 ├── docs/
-│   └── I501_Final_Presentation.pptx        # Final project presentation
+│   ├── I501_Final_Presentation.pptx        # Final course presentation
+│   └── I501_Final_Project_report.doc       # Final project report
 │
 └── README.md
 ```
@@ -94,6 +100,8 @@ pip install numpy pandas scikit-learn xgboost scipy matplotlib seaborn
 ### Data
 
 Download the PhysioNet dataset and set `dataset_path` in each notebook to your local copy:
+link to download the dataset: "https://physionet.org/content/olst-mocap-forceplate-radar/get-zip/1.0/"
+Physionet link: https://physionet.org/content/olst-mocap-forceplate-radar/1.0/
 
 ```
 multimodal-synchronized-motion-capture-force-plate-and-radar-dataset-of-the-one-legged-stand-test-for-fall-risk-assessment-1.0/
@@ -107,7 +115,7 @@ multimodal-synchronized-motion-capture-force-plate-and-radar-dataset-of-the-one-
 4. `feature_extraction/Merge_extracted_features.ipynb` → produces `OLST_Final_Merged.csv`
 5. `ml_pipeline/OLST_Full_Pipeline.ipynb` → full EDA + model training + evaluation
 
-> **Note:** Notebooks were developed in Google Colab. Update file paths (`/content/drive/MyDrive/...`) to match your local environment if running locally.
+> **Note:** Update file paths to match your local environment.
 
 ---
 
