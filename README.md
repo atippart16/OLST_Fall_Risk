@@ -41,11 +41,11 @@ This project evaluates whether **multimodal sensor fusion** improves the detecti
 │   └── Merge_extracted_features.ipynb      # Merges all modalities → OLST_Final_Merged.csv
 │
 ├── ml_pipeline/
-│   └── OLST_Full_Pipeline.ipynb            # EDA, SQL cleaning, ML models, evaluation
+│   └── OLST_Full_Pipeline.ipynb            # EDA, ML models, evaluation
 │
 ├── sql/
-│   └── data_cleaning.sql                   # SQL cleaning to remove attempts with atleast 1 missing feature
-│
+│   └── OLST_Final_Cleaned.sql                   # SQL cleaning to remove attempts with at least 1 missing feature
+│   └── OLST_Final_Cleaned_import.sql            # SQL import table code
 ├── docs/
 │   ├── I501_Final_Presentation.pptx        # Final course presentation
 │   └── I501_Final_Project_report.doc       # Final project report
@@ -113,7 +113,8 @@ multimodal-synchronized-motion-capture-force-plate-and-radar-dataset-of-the-one-
 2. `feature_extraction/Forceplate_feature_extraction.ipynb` → produces `fp_features.csv`
 3. `feature_extraction/Radar_feature_extraction.ipynb` → produces `radar_features.csv`
 4. `feature_extraction/Merge_extracted_features.ipynb` → produces `OLST_Final_Merged.csv`
-5. `ml_pipeline/OLST_Full_Pipeline.ipynb` → full EDA + model training + evaluation
+5. `sql/OLST_Final_Cleaned_import.sql` + `sql/OLST_Final_Cleaned.sql` → produces `OLST_Final_Cleaned.csv
+6. `ml_pipeline/OLST_Full_Pipeline.ipynb` → full EDA + model training + evaluation
 
 > **Note:** Update file paths to match your local environment.
 
